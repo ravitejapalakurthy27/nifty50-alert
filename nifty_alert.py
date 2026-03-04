@@ -56,8 +56,14 @@ for ticker_sym, name, threshold in INDICES:
 
     try:
         t    = yf.Ticker(ticker_sym)
-        # Use 10d window to ensure at least 2 trading days of data
+        # Fetch daily history — try ticker.history() first, fall back to yf.download()
         hist = t.history(period="1mo", interval="1d")
+        if len(hist) < 2:
+            dl = yf.download(ticker_sym, period="1mo", interval="1d",
+                             auto_adjust=True, progress=False)
+            if hasattr(dl.columns, 'levels'):
+                dl.columns = [c[0] for c in dl.columns]
+            hist = dl
 
         if len(hist) < 2:
             print(f"  WARNING: Not enough history for {name} ({ticker_sym}) -- skipping.")
