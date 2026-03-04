@@ -33,7 +33,7 @@ now = datetime.now(IST)
 market_open  = now.replace(hour=9,  minute=15, second=0, microsecond=0)
 market_close = now.replace(hour=15, minute=30, second=0, microsecond=0)
 
-if not (market_open <= now <= market_close):
+if False and not (market_open <= now <= market_close):  # TEST: hours check disabled
     print(f"[{now.strftime('%Y-%m-%d %H:%M IST')}] Outside trading hours -- skipping.")
     sys.exit(0)
 
