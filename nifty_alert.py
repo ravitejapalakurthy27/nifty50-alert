@@ -23,7 +23,6 @@ INDICES = [
     ("^NSEI",              "Nifty 50",           -1.0),
     ("^NSMIDCP",           "Nifty Next 50",      -1.5),
     ("NIFTYMIDCAP150.NS",  "Nifty Midcap 150",   -1.5),
-    ("NIFTYSMLCAP250.NS",  "Nifty Smallcap 250", -1.5),
 ]
 
 # ── 1. Trading-hours gate (IST) ───────────────────────────────────────────────
@@ -33,7 +32,7 @@ now = datetime.now(IST)
 market_open  = now.replace(hour=9,  minute=15, second=0, microsecond=0)
 market_close = now.replace(hour=15, minute=30, second=0, microsecond=0)
 
-if False and not (market_open <= now <= market_close):  # TEST: hours check disabled
+if not (market_open <= now <= market_close):
     print(f"[{now.strftime('%Y-%m-%d %H:%M IST')}] Outside trading hours -- skipping.")
     sys.exit(0)
 
@@ -56,14 +55,8 @@ for ticker_sym, name, threshold in INDICES:
 
     try:
         t    = yf.Ticker(ticker_sym)
-        # Fetch daily history — try ticker.history() first, fall back to yf.download()
+        # Fetch daily history
         hist = t.history(period="1mo", interval="1d")
-        if len(hist) < 2:
-            dl = yf.download(ticker_sym, period="1mo", interval="1d",
-                             auto_adjust=True, progress=False)
-            if hasattr(dl.columns, 'levels'):
-                dl.columns = [c[0] for c in dl.columns]
-            hist = dl
 
         if len(hist) < 2:
             print(f"  WARNING: Not enough history for {name} ({ticker_sym}) -- skipping.")
