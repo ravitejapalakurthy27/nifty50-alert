@@ -57,7 +57,7 @@ for ticker_sym, name, threshold in INDICES:
     try:
         t    = yf.Ticker(ticker_sym)
         # Use 10d window to ensure at least 2 trading days of data
-        hist = t.history(period="10d", interval="1d")
+        hist = t.history(period="1mo", interval="1d")
 
         if len(hist) < 2:
             print(f"  WARNING: Not enough history for {name} ({ticker_sym}) -- skipping.")
