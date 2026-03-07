@@ -20,7 +20,7 @@ STATE_FILE         = "alert_state.json"
 
 # Nifty Index Funds: (Yahoo Finance ticker, display name, drop threshold %)
 INDICES = [
-    ("^NSEI",              "Nifty 50",           -1.0),
+    ("^NSEI",              "Nifty 50",           -1.5),
     ("^NSMIDCP",           "Nifty Next 50",      -1.5),
     ("NIFTYMIDCAP150.NS",  "Nifty Midcap 150",   -1.5),
 ]
