@@ -36,6 +36,11 @@ if not (market_open <= now <= market_close):
     print(f"[{now.strftime('%Y-%m-%d %H:%M IST')}] Outside trading hours -- skipping.")
     sys.exit(0)
 
+# Skip weekends — NSE trades Mon–Fri only (rare exception: Muhurat trading)
+if now.weekday() >= 5:  # 5 = Saturday, 6 = Sunday
+    print(f"[{now.strftime('%Y-%m-%d %H:%M IST')}] Weekend -- no trading today, skipping.")
+    sys.exit(0)
+
 # ── 2. Load persisted state ───────────────────────────────────────────────────
 today_str = date.today().isoformat()
 state = {}
@@ -68,7 +73,19 @@ for ticker_sym, name, threshold in INDICES:
 
         try:
             intra = t.history(period="1d", interval="1m")
-            current_price = float(intra["Close"].iloc[-1]) if not intra.empty else float(hist["Close"].iloc[-1])
+            if intra.empty:
+                print(f"  {name}: no intraday data -- market holiday, skipping.")
+                continue
+            # Verify data is from today (catches NSE holidays on weekdays)
+            last_ts = intra.index[-1]
+            try:
+                last_date = last_ts.tz_convert(IST).date()
+            except Exception:
+                last_date = last_ts.date() if hasattr(last_ts, 'date') else date.today()
+            if last_date != date.today():
+                print(f"  {name}: last data from {last_date} -- market holiday today, skipping.")
+                continue
+            current_price = float(intra["Close"].iloc[-1])
         except Exception:
             current_price = float(hist["Close"].iloc[-1])
 
