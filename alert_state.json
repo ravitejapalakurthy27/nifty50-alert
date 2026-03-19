@@ -1,10 +1,10 @@
 {
   "NIFTYMIDCAP150.NS": {
-    "last_alert_date": "2026-03-13",
-    "alert_time_ist": "2026-03-13T13:15:36.159242+05:30",
-    "prev_close": 20790.900390625,
-    "alert_price": 20259.55078125,
-    "pct_change": -2.555683493219925
+    "last_alert_date": "2026-03-19",
+    "alert_time_ist": "2026-03-19T13:34:29.257458+05:30",
+    "prev_close": 20746.80078125,
+    "alert_price": 20224.150390625,
+    "pct_change": -2.519185469295812
   },
   "^NSMIDCP": {
     "last_alert_date": "2026-03-19",
@@ -12,5 +12,12 @@
     "prev_close": 65668.5,
     "alert_price": 63982.3984375,
     "pct_change": -2.567595669917845
+  },
+  "^NSEI": {
+    "last_alert_date": "2026-03-19",
+    "alert_time_ist": "2026-03-19T13:34:29.257458+05:30",
+    "prev_close": 23777.80078125,
+    "alert_price": 23180.80078125,
+    "pct_change": -2.5107452345667087
   }
 }
