@@ -7,10 +7,10 @@
     "pct_change": -2.555683493219925
   },
   "^NSMIDCP": {
-    "last_alert_date": "2026-03-13",
-    "alert_time_ist": "2026-03-13T14:00:43.307502+05:30",
-    "prev_close": 66424.546875,
-    "alert_price": 64645.0,
-    "pct_change": -2.6790500782019824
+    "last_alert_date": "2026-03-19",
+    "alert_time_ist": "2026-03-19T13:15:32.873710+05:30",
+    "prev_close": 65668.5,
+    "alert_price": 63982.3984375,
+    "pct_change": -2.567595669917845
   }
 }
