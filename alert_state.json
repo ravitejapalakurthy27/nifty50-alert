@@ -14,10 +14,10 @@
     "pct_change": -3.043034057223583
   },
   "^NSEI": {
-    "last_alert_date": "2026-03-20",
-    "alert_time_ist": "2026-03-20T12:30:49.145176+05:30",
-    "prev_close": 23777.80078125,
-    "alert_price": 23143.0,
-    "pct_change": -2.6697203290161826
+    "last_alert_date": "2026-03-23",
+    "alert_time_ist": "2026-03-23T11:00:40.464709+05:30",
+    "prev_close": 23114.5,
+    "alert_price": 22516.650390625,
+    "pct_change": -2.5864700052997036
   }
 }
