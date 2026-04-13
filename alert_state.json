@@ -7,11 +7,11 @@
     "pct_change": -2.7849757676684477
   },
   "^NSMIDCP": {
-    "last_alert_date": "2026-04-02",
-    "alert_time_ist": "2026-04-02T09:31:04.303287+05:30",
-    "prev_close": 61912.75,
-    "alert_price": 60197.3515625,
-    "pct_change": -2.7706707221048976
+    "last_alert_date": "2026-04-13",
+    "alert_time_ist": "2026-04-13T09:15:38.799385+05:30",
+    "prev_close": 67641.25,
+    "alert_price": 65846.1484375,
+    "pct_change": -2.6538562822242344
   },
   "^NSEI": {
     "last_alert_date": "2026-03-23",
